@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: minimumpath-job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: min-path-job
+        image: minimumpath:latest
+        imagePullPolicy: Never  
+        volumeMounts:
+        - name: matrix-data-vol
+          mountPath: /app/matrix.txt
+          subPath: matrix.txt
+      volumes:
+      - name: matrix-data-vol
+        configMap:
+          name: matrix-data
+  backoffLimit: 4
