@@ -48,6 +48,7 @@ Check the log with kubectl logs job/minimumpath-job.
 ### Create ConfigMap and load data from matrix.txt
  --> cd matrix-task
  --> kubectl create configmap matrix-data --from-file=matrix.txt
+ 
  --> Verify: kubectl get configmap matrix-data -o yaml
  
 ### Deploy the Job
