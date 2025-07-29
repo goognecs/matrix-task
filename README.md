@@ -40,19 +40,19 @@ Check the log with kubectl logs job/minimumpath-job.
 
 ## Instructions
 ###  Build the Docker Image
- #### docker build -t minimumpath:latest .
+ --> docker build -t minimumpath:latest .
 
 ### Load Docker Image into Kind Cluster
- #### kind load docker-image minimumpath:latest --name necslab
+ --> kind load docker-image minimumpath:latest --name necslab
 
 ### Create ConfigMap and load data from matrix.txt
- #### cd matrix-task
- #### kubectl create configmap matrix-data --from-file=matrix.txt
- #### Verify: kubectl get configmap matrix-data -o yaml
+ --> cd matrix-task
+ --> kubectl create configmap matrix-data --from-file=matrix.txt
+ --> Verify: kubectl get configmap matrix-data -o yaml
  
 ### Deploy the Job
- #### kubectl apply -f job-min-path.yaml
+ --> kubectl apply -f job-min-path.yaml
 
 ### Check Job and Logs
- #### kubectl logs job/minimumpath-job
+ --> kubectl logs job/minimumpath-job
 
